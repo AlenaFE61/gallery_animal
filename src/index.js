@@ -26,7 +26,7 @@ let simpleLightbox;
 async function onSubmit(event) {
     event.preventDefault();
 
-    value = input.value.trim();
+  let  value = input.value.trim();
     if (value === '') {
         clearAll();
         btnHidden();
