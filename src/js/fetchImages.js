@@ -15,7 +15,7 @@ export async function fetchImages(searchValue) {
         per_page: perPage,
         page
     });
-    const images = await axios.get(`https://pixabay.com/api/?${searchParams}`).then(page +=1);
+    const images = await axios.get(`https://pixabay.com/api/?${searchParams}`);
     return images.data;
 };
 
