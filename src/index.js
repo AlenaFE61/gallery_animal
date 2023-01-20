@@ -22,19 +22,22 @@ const optionsSL = {
 };
 let simpleLightbox;
 
+onScroll();
+onTop();
 
 async function onSubmit(event) {
     event.preventDefault();
 
-  let  value = input.value.trim();
-    if (value === '') {
+    searchValue = input.value.trim();
+    if (searchValue === '') {
         clearAll();
         btnHidden();
+        Notiflix.Notify.info('Search is not possible with an empty field, try again.');
         return;
     } else {
         try {
             resetPage();
-            const result = await fetchImages(value);
+            const result = await fetchImages(searchValue);
             if (result.hits < 1) {
                 form.reset();
                 clearAll();
@@ -58,10 +61,11 @@ async function onNextImagesAdd() {
 
     simpleLightbox.destroy();
     try {
-        const result = await fetchImages(value);
+        const result = await fetchImages(searchValue);
         const totalPages = page * perPage;
             if (result.totalHits <= totalPages) {
               btnHidden();
+              Notiflix.Report.info('The search is over');
             }
         gallery.insertAdjacentHTML('beforeend', imageCreate(result.hits));
         smothScroll();
@@ -74,6 +78,7 @@ async function onNextImagesAdd() {
 function ifError() {
     clearAll();
     btnHidden();
+    Notiflix.Report.info('Something went wrong. Try again.');
 };
 
 function clearAll() {
