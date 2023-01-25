@@ -2,7 +2,7 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 import Notiflix from 'notiflix';
 import { fetchImages, page, perPage, resetPage } from './js/fetchImages';
-
+import { onTop, onScroll } from './js/button';
 
 
 const form = document.querySelector(".search-form");

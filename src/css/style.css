@@ -105,10 +105,12 @@ body {
   padding-left: 15px;
   margin-bottom: 10px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+  border-radius: 20%;
   cursor: pointer;
   background-color: #06566a;
   color: white;
+  width: 80px;
+  height: 80px;
 
 }
 .load-more:hover {
@@ -127,4 +129,35 @@ body {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+
+.on-top {
+  position: fixed;
+  font-size: 15px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  cursor: pointer;
+  opacity: 1;
+  visibility: hidden;
+  background-color: #06566a;
+  color: white;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.on-top:hover {
+  background-color: white;
+  color: #06566a;
+  
+}
+.btn-to-top--visible {
+  opacity: 1;
+  visibility: visible;
 }

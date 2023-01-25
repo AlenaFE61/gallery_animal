@@ -7,7 +7,7 @@ export const perPage = 40;
 
 export async function fetchImages(searchValue) {
     const searchParams = new URLSearchParams ({
-        key: '28416267-980e6e5ab3caaf003a8a6cf19',
+        key: '30163635-d3ce08ab8a7984e551514dc56',
         q: searchValue,
         image_type: 'photo',
         orientation: 'horizontal',
@@ -15,7 +15,7 @@ export async function fetchImages(searchValue) {
         per_page: perPage,
         page
     });
-    const images = await axios.get(`https://pixabay.com/api/?${searchParams}`);
+    const images = await axios.get(`https://pixabay.com/api/?${searchParams}`).then(page +=1);
     return images.data;
 };
 
