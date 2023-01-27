@@ -59,7 +59,6 @@ async function onSubmit(event) {
 
 async function onNextImagesAdd() {
 
-    simpleLightbox.destroy();
     try {
         const result = await fetchImages(searchValue);
         const totalPages = page * perPage;
