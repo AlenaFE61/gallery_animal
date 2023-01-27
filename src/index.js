@@ -20,7 +20,7 @@ const optionsSL = {
     captionsData: "alt",
     captionDelay: 250,
 };
-let simpleLightbox;
+let simpleLightbox= new SimpleLightbox(".gallery a", optionsSL);
 
 onScroll();
 onTop();
@@ -28,7 +28,7 @@ onTop();
 async function onSubmit(event) {
     event.preventDefault();
 
-    searchValue = input.value.trim();
+    searchValue = event.currentTarget.elements.searchQuery.value.trim();
     if (searchValue === '') {
         clearAll();
         btnHidden();
@@ -46,7 +46,7 @@ async function onSubmit(event) {
             } else {
                 form.reset();
                 gallery.innerHTML = imageCreate(result.hits);
-                simpleLightbox = new SimpleLightbox(".gallery a", optionsSL).refresh();
+                simpleLightbox.refresh();
                 btnUnHidden();
 
                 Notiflix.Notify.success(`Hooray! We found ${result.totalHits} images.`);
@@ -69,7 +69,7 @@ async function onNextImagesAdd() {
             }
         gallery.insertAdjacentHTML('beforeend', imageCreate(result.hits));
         smothScroll();
-        simpleLightbox = new SimpleLightbox(".gallery a", optionsSL).refresh();
+        simpleLightbox.refresh();
     } catch (error) {
         ifError();
     };
